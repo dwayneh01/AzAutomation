@@ -1,0 +1,40 @@
+name: Integration
+
+on: 
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 'inital test'
+        run: echo "hello world!"
+
+      - name: 'login az cli'
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: 'Run a cli command'
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az account show
+
+      - name: Azure PowerShell script
+        uses: azure/powershell@v2
+        with:
+          azPSVersion: "latest"
+          inlineScript: |
+            Get-AzContext
