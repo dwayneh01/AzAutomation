@@ -16,8 +16,11 @@ jobs:
         run: | 
           echo "issue title: ${{ github.event.issue.title }}"
           echo "issue body: ${{ github.event.issue.body }}" 
+          for value in "${{ github.event.issue.body }}";do echo $value;done
           echo "issue number: ${{ github.event.issue.number }}"
           echo "issue labels: ${{ toJson(github.event.issue.labels) }}"
+
+
 
       - name: 'login az cli'
         uses: azure/login@v1
