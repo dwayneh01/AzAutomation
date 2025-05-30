@@ -9,6 +9,8 @@ jobs:
     uses: ./.github/workflows/create_vnet.yml
     with:
       params:  ${{ github.event.issue.body }}
+    secrets: inherit
+
   
   build:
     runs-on: ubuntu-latest 
