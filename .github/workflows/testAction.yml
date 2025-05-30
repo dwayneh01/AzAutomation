@@ -5,10 +5,13 @@ on:
     types: [opened]
 
 jobs:
+  workflow:
+    uses: ./.github/workflows/create_vnet.yml
+    with:
+      params:  ${{ github.event.issue.body }}
+  
   build:
-
     runs-on: ubuntu-latest 
-
     steps:
       - uses: actions/checkout@v4
 
@@ -19,11 +22,6 @@ jobs:
           for value in "${{ github.event.issue.body }}";do echo $value;done
           echo "issue number: ${{ github.event.issue.number }}"
           echo "issue labels: ${{ toJson(github.event.issue.labels) }}"
-
-      - name: 'chooseResource'
-        uses: AzAutomation/.github/workflows/create_vnet.yml
-        with:
-          params:  ${{ github.event.issue.body }}
 
       - name: 'login az cli'
         uses: azure/login@v1
