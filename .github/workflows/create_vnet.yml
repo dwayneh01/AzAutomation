@@ -1,0 +1,30 @@
+name: create vnet
+
+on: 
+  workflow_call:
+    inputs:
+      params:
+        required: true
+        type: string 
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 'inital test 2'
+        run: | 
+          echo "inputs: ${{ inputs.params }}"
+
+      - name: 'login az cli'
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: 'Run a cli command'
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az account show
