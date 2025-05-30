@@ -9,6 +9,9 @@ jobs:
     uses: ./.github/workflows/create_vnet.yml
     with:
       params:  ${{ github.event.issue.body }}
+    secrets: 
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+
   
   build:
     runs-on: ubuntu-latest 
