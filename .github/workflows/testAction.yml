@@ -21,7 +21,7 @@ jobs:
           echo "issue labels: ${{ toJson(github.event.issue.labels) }}"
 
       - name: 'chooseResource'
-        uses: ./.github/workflows/create_vnet.yml
+        uses: AzAutomation/.github/workflows/create_vnet.yml
         with:
           params:  ${{ github.event.issue.body }}
 
