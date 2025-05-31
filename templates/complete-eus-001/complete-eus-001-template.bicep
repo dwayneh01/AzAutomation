@@ -1,4 +1,6 @@
 
+param paramLocation string
+
 var app1 = 'complete-eus-001'
 var location = '${paramLocation}'
 
