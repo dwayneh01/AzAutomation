@@ -51,4 +51,6 @@ jobs:
           resource-group-name: ${{ inputs.rgroup }}
           template-file: ${{ inputs.templateFile }}
           parameters-file: ${{ inputs.parameterFile }}
+          operation: create
+          scope: resourceGroup
           
