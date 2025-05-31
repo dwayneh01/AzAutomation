@@ -50,5 +50,5 @@ jobs:
           subscription-id: ${{ inputs.subId }}
           resource-group-name: ${{ inputs.rgroup }}
           template-file: ${{ inputs.templateFile }}
-          parameters: ${{ inputs.parameterFile }}
+          parameters-file: ${{ inputs.parameterFile }}
           
