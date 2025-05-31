@@ -3,7 +3,16 @@ name: create vnet
 on: 
   workflow_call:
     inputs:
-      params:
+      templateFile:
+        required: true
+        type: string
+      parameterFile:
+        required: true
+        type: string
+      subId:
+        required: true
+        type: string
+      rgroup:
         required: true
         type: string
     secrets:
@@ -31,3 +40,11 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az account show
+    
+      - name: Run ARM deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ inputs.subId }}
+          resourceGroupName: ${{ inputs.rgroup }}
+          template: ${{ inputs.templateFile }}
+          parameters: ${{ inputs.parameterFile }}

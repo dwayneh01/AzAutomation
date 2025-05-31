@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "extensions_CustomScript_fileUris": {
+            "value": null
+        },
+        "extensions_CustomScript_storageAccountName": {
+            "value": null
+        },
+        "extensions_CustomScript_storageAccountKey": {
+            "value": null
+        },
+        "extensions_CustomScript_commandToExecute": {
+            "value": null
+        },
+        "containerGroups_aci_complete_eus_001_workspaceKey": {
+            "value": null
+        },
+        "networkSecurityGroups_nsg_testing_name": {
+            "value": null
+        },
+        "virtualMachines_vm_complete_eus_001_name": {
+            "value": null
+        },
+        "privateDnsZones_completeeus_internal_name": {
+            "value": null
+        },
+        "virtualNetworks_vnet_complete_eus_001_name": {
+            "value": null
+        },
+        "networkInterfaces_nic_complete_eus_001_name": {
+            "value": null
+        },
+        "publicIPAddresses_pip_complete_eus_001_name": {
+            "value": null
+        },
+        "containerGroups_aci_complete_eus_001_name": {
+            "value": null
+        },
+        "schedules_shutdown_computevm_vm_complete_eus_001_name": {
+            "value": null
+        }
+    }
+}
