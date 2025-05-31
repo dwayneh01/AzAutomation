@@ -19,7 +19,8 @@ jobs:
           echo $num
           count=$(( num-1 ))
           echo $count
-          for (( i=1; i<=${count} i++ ))
+          data=()
+          for (( i=1; i<=${count}; i++ ))
           do 
             data+=("${{ github.event.issue.title }}-template-${i}")
           done
