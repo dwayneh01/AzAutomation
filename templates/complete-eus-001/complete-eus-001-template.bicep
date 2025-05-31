@@ -1,6 +1,6 @@
 
 var app1 = 'complete-eus-001'
-var location = 'eastus'
+var location = '${paramLocation}'
 
 resource vnet_complete_eus_001 'Microsoft.Network/virtualNetworks@2024-05-01' = {
     name: 'vnet-${app1}'
