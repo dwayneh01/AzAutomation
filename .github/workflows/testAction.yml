@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 'count files'
-        id: set-matrix
+      - id: set-matrix
+        name: 'count files'
         run: | 
           num=$(ls ./templates/${{ github.event.issue.title }} | wc -l | xargs)
           echo $num
