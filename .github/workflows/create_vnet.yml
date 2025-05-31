@@ -46,7 +46,9 @@ jobs:
       - name: Run Bicep deploy
         uses: azure/bicep-deploy@v2
         with:
+          type: deployment
           subscription-id: ${{ inputs.subId }}
           resource-group-name: ${{ inputs.rgroup }}
           template-file: ${{ inputs.templateFile }}
           parameters: ${{ inputs.parameterFile }}
+          
