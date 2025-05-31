@@ -9,8 +9,8 @@ jobs:
     uses: ./.github/workflows/create_vnet.yml
     with:
       # params:  ${{ github.event.issue.body }}
-      templateFile: "./templates/${{ github.event.issue.title }}-template.bicep"
-      parameterFile: "./templates/${{ github.event.issue.title }}-parameters.json"
+      templateFile: "./templates/${{ github.event.issue.title }}/${{ github.event.issue.title }}-template.bicep"
+      parameterFile: "./templates/${{ github.event.issue.title }}/${{ github.event.issue.title }}-parameters.json"
       subId: "42172145-a813-4382-ba2a-ccd469d6d439"
       rgroup: "rg-${{ github.event.issue.title }}"
 
