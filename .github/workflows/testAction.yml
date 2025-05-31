@@ -25,6 +25,7 @@ jobs:
             data+=("${{ github.event.issue.title }}-template-${i}")
           done
           json=$(printf '%s\n' "${data[@]}" | jq -R . | jq -s .)
+          echo "$json"
           echo "files=$json" >> $GITHUB_OUTPUT
 
   workflow:
