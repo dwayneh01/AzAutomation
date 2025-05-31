@@ -15,8 +15,10 @@ jobs:
       - name: 'count files'
         id: set-matrix
         run: | 
-          num=$(ls ./templates/${{ github.event.issue.title }} | wc -l)
+          num=$(ls ./templates/${{ github.event.issue.title }} | wc -l | xargs)
+          echo $num
           count=$(( num-1 ))
+          data=()
           for (( i=1; i<=${count} i++ ))
           do 
             data+=("${{ github.event.issue.title }}-template-${i}")
