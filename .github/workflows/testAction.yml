@@ -12,12 +12,14 @@ jobs:
       templateFile: "./templates/${{ github.event.issue.title }}-template.bicep"
       parameterFile: "./templates/${{ github.event.issue.title }}-parameters.json"
       subId: "42172145-a813-4382-ba2a-ccd469d6d439"
-      rgroup: "rg-${{ github.events.issue.title }}"
+      rgroup: "rg-${{ github.event.issue.title }}"
 
     secrets: inherit
 
   
   build:
+    needs:
+      - workflow
     runs-on: ubuntu-latest 
     steps:
       - uses: actions/checkout@v4
