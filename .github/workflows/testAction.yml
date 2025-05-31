@@ -5,11 +5,33 @@ on:
     types: [opened]
 
 jobs:
+  checkDir:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.files }}
+    steps:
+      - name: 'count files'
+        id: set-matrix
+        run: | 
+          num=$(ls ./templates/${{ github.event.issue.title }} | wc -l)
+          count=$(( num-1 ))
+          data=()
+          for (( i=1; i<=${count} i++ ))
+          do 
+            data+=("${{ github.event.issue.title }}-template-${i}")
+          done
+          json=$(printf '%s\n' "${data[@]}" | jq -R . | jq -s .)
+          echo "files=$json >> $GITHUB_OUTPUT" 
+
   workflow:
+    needs: checkDir
+    strategy:
+      matrix:
+        item: ${{ fromJson(needs.checkDir.outputs.matrix) }} 
     uses: ./.github/workflows/create_vnet.yml
     with:
       # params:  ${{ github.event.issue.body }}
-      templateFile: "./templates/${{ github.event.issue.title }}/${{ github.event.issue.title }}-template.bicep"
+      templateFile: "./templates/${{ github.event.issue.title }}/${{ matrix.item }}.bicep"
       parameterFile: "./templates/${{ github.event.issue.title }}/${{ github.event.issue.title }}-parameters.json"
       subId: "42172145-a813-4382-ba2a-ccd469d6d439"
       rgroup: "rg-${{ github.event.issue.title }}"
