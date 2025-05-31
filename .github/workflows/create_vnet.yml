@@ -43,10 +43,10 @@ jobs:
           inlineScript: |
             az account show
     
-      - name: Run ARM deploy
-        uses: azure/arm-deploy@v1
+      - name: Run Bicep deploy
+        uses: azure/bicep-deploy@v2
         with:
-          subscriptionId: ${{ inputs.subId }}
-          resourceGroupName: ${{ inputs.rgroup }}
-          template: ${{ inputs.templateFile }}
+          subscription-id: ${{ inputs.subId }}
+          resource-group-name: ${{ inputs.rgroup }}
+          template-file: ${{ inputs.templateFile }}
           parameters: ${{ inputs.parameterFile }}
