@@ -1,5 +1,5 @@
 
-param paramLocation string
+param param Location string
 
 var app1 = 'complete-eus-001'
 var location = '${paramLocation}'
