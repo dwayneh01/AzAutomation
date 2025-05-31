@@ -25,7 +25,7 @@ jobs:
             data+=("${{ github.event.issue.title }}-template-${i}")
           done
           json=$(printf '%s\n' "${data[@]}" | jq -R . | jq -s .)
-          echo "files=$json >> $GITHUB_OUTPUT" 
+          echo "files=$json" >> $GITHUB_OUTPUT
 
   workflow:
     needs: checkDir
