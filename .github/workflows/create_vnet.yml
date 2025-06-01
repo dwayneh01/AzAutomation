@@ -49,7 +49,7 @@ jobs:
           paths: ./templates
           filter: '*.json'
         env:
-          vmPass: ${VMPASS}
+          VMPASS: ${VMPASS}
     
       - name: Run Bicep deploy
         uses: azure/bicep-deploy@v2
