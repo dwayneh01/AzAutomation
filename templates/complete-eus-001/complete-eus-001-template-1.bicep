@@ -3,7 +3,8 @@ param param_location string
 param vnetName string
 param applicationName string
 param subnetName string
-
+@secure()
+param vmPass string
 
 
 var app1 = '${applicationName}'

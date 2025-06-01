@@ -42,6 +42,14 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az account show
+      
+      - name: Replace envsubst styled tokens
+        uses: jonlabelle/replace-tokens-action@v1
+        with:
+          paths: ./templates
+          filter: '*.json'
+        env:
+          vmPass: ${VMPASS}
     
       - name: Run Bicep deploy
         uses: azure/bicep-deploy@v2

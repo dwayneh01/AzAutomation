@@ -3,7 +3,8 @@ param param_location string
 param vnetName string
 param applicationName string
 param subnetName string
-
+@secure()
+param vmPass string
 var app1 = '${applicationName}'
 
 
@@ -92,7 +93,7 @@ resource vm_complete_eus_001 'Microsoft.Compute/virtualMachines@2024-11-01' = {
       osProfile: {
         computerName: 'vm-${app1}'
         adminUsername: 'dherbert'
-        adminPassword: 'Ghrfdeilkhgfbdrishgrfdgber!'
+        adminPassword: '${vmPass}'
       }
       networkProfile: {
         networkInterfaces: [

@@ -13,6 +13,9 @@
         },
         "applicationName": {
             "value": "complete-eus-001"
+        },
+        "vmPass": {
+            "value": "{{VMPASS}}"
         }
     }
 }
