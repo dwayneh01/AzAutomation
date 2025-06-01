@@ -46,8 +46,7 @@ jobs:
       - name: Replace envsubst styled tokens
         uses: jonlabelle/replace-tokens-action@v1
         with:
-          paths: ./templates
-          filter: '*.json'
+          paths: ${{inputs.parameterFile}}
         env:
           VMPASS: ${VMPASS}
     
