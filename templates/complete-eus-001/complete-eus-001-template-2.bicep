@@ -72,7 +72,6 @@ resource nsg_complete_eus_001 'Microsoft.Network/networkSecurityGroups@2024-05-0
 resource vm_complete_eus_001 'Microsoft.Compute/virtualMachines@2024-11-01' = {
     name: 'vm-${app1}'
     location: resourceGroup().location
-
     properties: {
       hardwareProfile: {
         vmSize: 'Standard_B1s'

@@ -32,6 +32,7 @@ jobs:
   workflow:
     needs: checkDir
     strategy:
+      max-parallel: 1
       matrix:
         item: ${{ fromJson(needs.checkDir.outputs.matrix) }} 
     uses: ./.github/workflows/create_vnet.yml
