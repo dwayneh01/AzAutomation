@@ -48,7 +48,7 @@ jobs:
         with:
           paths: ${{inputs.parameterFile}}
         env:
-          VMPASS: ${VMPASS}
+          VMPASS: ${{secrets.VMPASS}}
     
       - name: Run Bicep deploy
         uses: azure/bicep-deploy@v2
