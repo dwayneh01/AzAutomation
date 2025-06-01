@@ -4,6 +4,15 @@
     "parameters": {
         "param_location": {
             "value": "eastus"
+        },
+        "vnetName": {
+            "value": "vnet-complete-eus-001"
+        },
+        "subnetName": {
+            "value": "sub-vm"
+        },
+        "applicationName": {
+            "value": "complete-eus-001"
         }
     }
 }

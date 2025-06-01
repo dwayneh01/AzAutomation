@@ -1,11 +1,14 @@
 
 param param_location string
 
-var app1 = 'complete-eus-001'
+param vnetName string
+param applicationName string
+
+var app1 = '${applicationName}'
 var location = '${param_location}'
 
 resource vnet_complete_eus_001 'Microsoft.Network/virtualNetworks@2024-05-01' = {
-    name: 'vnet-${app1}'
+    name: '${vnetName}'
     location: location
     properties: {
       addressSpace: {
