@@ -16,6 +16,9 @@
         },
         "vmPass": {
             "value": "{{VMPASS}}"
+        },
+        "vnetAddressSpace": {
+            "value": "124.1.0.0/16"
         }
     }
 }

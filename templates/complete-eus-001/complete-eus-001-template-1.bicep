@@ -6,6 +6,8 @@ param subnetName string
 @secure()
 param vmPass string
 
+param vnetAddressSpace string
+var subnets = [for i in range(0,3): cidrSubnet(vnetAddressSpace, 24, i)]
 
 var app1 = '${applicationName}'
 var location = '${param_location}'
@@ -15,13 +17,13 @@ resource vnet_complete_eus_001 'Microsoft.Network/virtualNetworks@2024-05-01' = 
     location: location
     properties: {
       addressSpace: {
-        addressPrefixes: ['124.1.0.0/16']
+        addressPrefixes: vnetAddressSpace
       }
       subnets: [
         {
           name: 'default'
           properties: {
-            addressPrefixes: [ '124.1.0.0/24' ]
+            addressPrefixes: [subnets[0]]
             privateEndpointNetworkPolicies: 'Disabled'
             privateLinkServiceNetworkPolicies: 'Enabled'
           }
@@ -34,7 +36,7 @@ resource subnet_vm_vnet_complete_eus_001 'Microsoft.Network/virtualNetworks/subn
   parent: vnet_complete_eus_001
   name: 'sub-vm'
   properties: {
-    addressPrefixes: [ '124.1.1.0/24' ]
+    addressPrefixes: [ subnets[1] ]
     privateEndpointNetworkPolicies: 'Disabled'
     privateLinkServiceNetworkPolicies: 'Enabled'
   }
@@ -44,7 +46,7 @@ resource subnet_containers_vnet_complete_eus_001 'Microsoft.Network/virtualNetwo
   parent: vnet_complete_eus_001
   name: 'sub-containers'
   properties: {
-    addressPrefixes: [ '124.1.2.0/24' ]
+    addressPrefixes: [ subnets[2] ]
     privateEndpointNetworkPolicies: 'Disabled'
     privateLinkServiceNetworkPolicies: 'Enabled'
     delegations:[
