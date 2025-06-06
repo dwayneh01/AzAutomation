@@ -17,7 +17,7 @@ resource vnet_complete_eus_001 'Microsoft.Network/virtualNetworks@2024-05-01' = 
     location: location
     properties: {
       addressSpace: {
-        addressPrefixes: vnetAddressSpace
+        addressPrefixes: [vnetAddressSpace]
       }
       subnets: [
         {

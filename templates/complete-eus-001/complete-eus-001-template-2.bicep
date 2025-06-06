@@ -6,7 +6,7 @@ param subnetName string
 @secure()
 param vmPass string
 var app1 = '${applicationName}'
-
+param vnetAddressSpace string
 
 
 resource publicip_vm_complete_eus_001 'Microsoft.Network/publicIPAddresses@2024-05-01' = {
