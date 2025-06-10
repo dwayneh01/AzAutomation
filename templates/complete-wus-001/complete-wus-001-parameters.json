@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "param_location": {
+            "value": "westus"
+        },
+        "vnetName": {
+            "value": "vnet-complete-wus-001"
+        },
+        "subnetName": {
+            "value": "sub-vm"
+        },
+        "applicationName": {
+            "value": "complete-wus-001"
+        },
+        "vmPass": {
+            "value": "{{VMPASS}}"
+        },
+        "vnetAddressSpace": {
+            "value": "128.1.0.0/16"
+        }
+    }
+}
